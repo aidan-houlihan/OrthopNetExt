@@ -59,3 +59,19 @@ document.evaluate("//*[@id='addButtonDiv']/input[2]", document, null, 0, null).i
     return;
 
 })();
+
+
+//LOCAL STORAGE
+
+window.localStorage.setItem("loggedIn", "true");
+
+window.addEventListener('storage', (event) => {
+    if (event.storageArea != localStorage) return;
+    if (event.key === 'loggedIn') {
+      // Do something with event.newValue
+    }
+   });
+
+   /*
+
+   */

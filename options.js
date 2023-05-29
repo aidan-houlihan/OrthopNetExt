@@ -5,7 +5,7 @@ const saveOptions = () => {
     const individualCount = document.getElementById('individual_count').value;
     const country = document.getElementById('country').value;
 
-    chrome.storage.sync.set(
+    chrome.storage.local.set(
       { catalogNumberG: catalogNumber, lifeStageG: lifeStage,
       individualCountG: individualCount , countryG: country},
       () => {
@@ -22,8 +22,7 @@ const saveOptions = () => {
   // Restores select box and checkbox state using the preferences
   // stored in chrome.storage.
   const restoreOptions = () => {
-    chrome.storage.sync.get(
-      //{ favoriteColor: 'red', likesColor: true },
+    chrome.storage.local.get(
       (items) => {
         document.getElementById('catalog_number').value = items.catalogNumberG;
         document.getElementById('life_stage').value = items.lifeStageG;

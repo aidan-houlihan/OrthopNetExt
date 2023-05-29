@@ -23,14 +23,14 @@
     "save_and_append": {
       "suggested_key": {
         "default": "Alt+Shift+E",
-        "mac": "Alt+Shift+E"
+        "mac": "Ctrl+Shift+E"
       },
       "description": "Execute save content script in current tab"
     },
     "ditto":{
       "suggested_key":{
         "default": "Alt+Shift+L",
-        "mac": "Alt+Shift+L"
+        "mac": "Ctrl+Shift+L"
       },
       "description": "use ditto command"
     }
