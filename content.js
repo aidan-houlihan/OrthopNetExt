@@ -247,7 +247,7 @@ function dittoContent() {
             break;
     }
 
-    
+
 }
 
 // Listen for messages from the background script
@@ -268,6 +268,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         // run ditto function
         dittoContent();
         console.log("ditto test!")
+        window.event.keyCode = 9;
     }
 });
 
