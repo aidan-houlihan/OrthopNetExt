@@ -4,10 +4,11 @@ const saveOptions = () => {
     const lifeStage = document.getElementById('life_stage').value;
     const individualCount = document.getElementById('individual_count').value;
     const country = document.getElementById('country').value;
+    const disposition = document.getElementById('disposition').value;
 
     chrome.storage.sync.set(
       { catalogNumberG: catalogNumber, lifeStageG: lifeStage,
-      individualCountG: individualCount , countryG: country},
+      individualCountG: individualCount , countryG: country, dispositionG: disposition},
       () => {
         // Update status to let user know options were saved.
         const status = document.getElementById('status');
@@ -28,6 +29,7 @@ const saveOptions = () => {
         document.getElementById('life_stage').value = items.lifeStageG;
         document.getElementById('individual_count').value = items.individualCountG;
         document.getElementById('country').value = items.countryG;
+        document.getElementById('disposition').value = items.dispositionG
       }
     );
   };

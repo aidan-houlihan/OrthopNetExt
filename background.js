@@ -3,7 +3,7 @@ function saveAndAppend() {
     // Send a message to the content script only if the desired webpage URL matches
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         const currentURL = tabs[0].url;
-        if (currentURL.includes("https://fauna.ansp.org/OrthopNet/collections/editor/occurrenceeditor.php?gotomode=1&collid=1")) {
+        if (currentURL.includes("https://fauna.ansp.org/OrthopNet/collections/editor/occurrenceeditor.php")) {
             chrome.tabs.sendMessage(tabs[0].id, { command: "save_and_append" });
         }
     });
@@ -14,7 +14,7 @@ function ditto() {
     // Send a message to the content script only if the desired webpage URL matches
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         const currentURL = tabs[0].url;
-        if (currentURL.includes("https://fauna.ansp.org/OrthopNet/collections/editor/occurrenceeditor.php?gotomode=1&collid=1")) {
+        if (currentURL.includes("https://fauna.ansp.org/OrthopNet/collections/editor/occurrenceeditor.php")) {
             chrome.tabs.sendMessage(tabs[0].id, { command: "ditto" });
         }
     });
@@ -23,13 +23,15 @@ function ditto() {
 // Event listener for the commands
 chrome.commands.onCommand.addListener(function (command) {
     if (command === "save_and_append") {
-        //console.log("Save and append command executed");
+        console.log("Save and append command executed");
         saveAndAppend(); // Call the saveAndSubmit function
     } else if (command === "ditto") {
         ditto(); // Call the fillWithPrevious function
-        //console.log("ditto command executed");
+        console.log("ditto command executed");
     }
     return true;
 }
 );
+
+//Event listener for tab updates
 
