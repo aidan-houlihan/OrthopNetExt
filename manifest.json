@@ -22,15 +22,15 @@
   "commands": {
     "save_and_append": {
       "suggested_key": {
-        "default": "Ctrl+Shift+1",
-        "mac": "Command+Shift+1"
+        "default": "Ctrl+Shift+9",
+        "mac": "Command+Shift+9"
       },
       "description": "Save and submit the record"
     },
     "ditto": {
       "suggested_key": {
-        "default": "Ctrl+Shift+2",
-        "mac": "Command+Shift+2"
+        "default": "Ctrl+Shift+0",
+        "mac": "Command+Shift+0"
       },
       "description": "Fill with previous record"
     }
