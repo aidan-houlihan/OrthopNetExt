@@ -48,6 +48,8 @@ document.evaluate("//*[@id='addButtonDiv']/input[2]", document, null, 0, null).i
         alert("clicked the button!");
 
         //--- Append values to Catalog Number (and set cursor to end, do last), Country, Life Stage, Count ---
+        
+
 
     }
     else {

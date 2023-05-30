@@ -1,26 +1,35 @@
 // Function to handle the "save_and_submit" command
 function saveAndAppend() {
-    
-    // Implement your logic to save and submit the record
+    // Send a message to the content script only if the desired webpage URL matches
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        const currentURL = tabs[0].url;
+        if (currentURL.includes("https://fauna.ansp.org/OrthopNet/collections/editor/occurrenceeditor.php?gotomode=1&collid=1")) {
+            chrome.tabs.sendMessage(tabs[0].id, { command: "save_and_append" });
+        }
+    });
+}
 
-    // save every field in an array
+// Function to handle the "fill_with_previous" command
+function ditto() {
+    // Send a message to the content script only if the desired webpage URL matches
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        const currentURL = tabs[0].url;
+        if (currentURL.includes("https://fauna.ansp.org/OrthopNet/collections/editor/occurrenceeditor.php?gotomode=1&collid=1")) {
+            chrome.tabs.sendMessage(tabs[0].id, { command: "ditto" });
+        }
+    });
+}
 
-    console.log("save test");
-  }
-  
-  // Function to handle the "fill_with_previous" command
-  function ditto() {
-
-    // Implement your logic to fill the active text field with the value from the previous record
-
-    console.log("ditto test");
-  }
-  
-  // Event listener for the commands
-  chrome.commands.onCommand.addListener(function (command) {
+// Event listener for the commands
+chrome.commands.onCommand.addListener(function (command) {
     if (command === "save_and_append") {
-      saveAndAppend(); // Call the saveAndSubmit function
+        //console.log("Save and append command executed");
+        saveAndAppend(); // Call the saveAndSubmit function
     } else if (command === "ditto") {
-      ditto(); // Call the fillWithPrevious function
+        ditto(); // Call the fillWithPrevious function
+        //console.log("ditto command executed");
     }
-  });
+    return true;
+}
+);
+

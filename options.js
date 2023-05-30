@@ -1,6 +1,6 @@
 // Saves options to chrome.storage
 const saveOptions = () => {
-    const catalogNumber = document.getElementById('catalog_number').value;
+    const catalogNumber = document.getElementById('catalog_prefix').value;
     const lifeStage = document.getElementById('life_stage').value;
     const individualCount = document.getElementById('individual_count').value;
     const country = document.getElementById('country').value;
@@ -23,9 +23,8 @@ const saveOptions = () => {
   // stored in chrome.storage.
   const restoreOptions = () => {
     chrome.storage.sync.get(
-      //{ favoriteColor: 'red', likesColor: true },
       (items) => {
-        document.getElementById('catalog_number').value = items.catalogNumberG;
+        document.getElementById('catalog_prefix').value = items.catalogNumberG;
         document.getElementById('life_stage').value = items.lifeStageG;
         document.getElementById('individual_count').value = items.individualCountG;
         document.getElementById('country').value = items.countryG;

@@ -22,17 +22,17 @@
   "commands": {
     "save_and_append": {
       "suggested_key": {
-        "default": "Alt+Shift+E",
-        "mac": "Alt+Shift+E"
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
       },
-      "description": "Execute save content script in current tab"
+      "description": "Save and submit the record"
     },
-    "ditto":{
-      "suggested_key":{
-        "default": "Alt+Shift+L",
-        "mac": "Alt+Shift+L"
+    "ditto": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+2",
+        "mac": "Command+Shift+2"
       },
-      "description": "use ditto command"
+      "description": "Fill with previous record"
     }
   }
 }
