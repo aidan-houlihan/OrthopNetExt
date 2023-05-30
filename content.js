@@ -373,9 +373,9 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
 //Save and append the values if the add record button is pressed
 
-document.evaluate("//*[@id='addButtonDiv']/input[2]", document, null, 0, null).iterateNext().addEventListener(
-  "click", saveOnButtonClick()
-  );
+// document.evaluate("//*[@id='addButtonDiv']/input[2]", document, null, 0, null).iterateNext().addEventListener(
+//   "click", saveOnButtonClick()
+//   );
 
 //SET DEFAULT VALUES ON PAGE REFRESH (new record) --- WORKS KEEP IN content.js
 
