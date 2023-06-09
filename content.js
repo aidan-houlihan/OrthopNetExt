@@ -1,3 +1,4 @@
+
 function saveAndAppendContent() {
 
   //check if the record number is the right length (15 characters)
@@ -442,6 +443,9 @@ if (newOccurence == "New Occurrence Record") {
       document.getElementsByName("disposition")[0].value = option.dispositionG;
     }
   )
+
+  //generate UUID and put it in the occurenceID field
+  document.getElementsByName("occurrenceid")[0].value = self.crypto.randomUUID();
 
   //Open ID remarks field
 
