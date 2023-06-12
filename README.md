@@ -15,7 +15,7 @@ be used with similar portals.
 ## Installation Instructions:
 
 1. Download and unzip the OrthopNetExt folder. (click the green "Code" button dropdown arrow and select "Download ZIP")
-2. Save the folder to a place where you can easily access it (Desktop etc.)
+2. Unzip and save the folder to a place where you can easily access it (Desktop etc.)
 3. Navigate to Google Chrome extension manager: chrome://extensions/ 
 4. At the top right, turn on Developer mode.
 5. Click "Load unpacked" from the upper left corner.
