@@ -1,6 +1,8 @@
 
 function saveAndAppendContent() {
 
+  //alert("save and append start");
+
   //check if the record number is the right length (15 characters)
   if(document.getElementById('catalognumber').value.length != 15){
     alert("It looks like the record number might be mistyped, try again before saving!")
@@ -24,9 +26,12 @@ function saveAndAppendContent() {
 
   //if there is a species name entered, save normally
   else {
+
+    //alert("save append checked");
+
     //save every field value to variable
     var catalog_number = document.getElementById('catalognumber').value;
-    var othercatalog_numbers = document.getElementsByName("othercatalognumbers")[0].value;
+    //var othercatalog_numbers = document.getElementsByName("othercatalognumbers")[0].value;
     var recorded_by = document.getElementsByName("recordedby")[0].value;
     var record_number = document.getElementsByName("recordnumber")[0].value;
     var event_date = document.getElementsByName("eventdate")[0].value;
@@ -41,18 +46,20 @@ function saveAndAppendContent() {
     var associated_taxa = document.getElementsByName("associatedtaxa")[0].value;
     var verbatim_attributes = document.getElementsByName("verbatimattributes")[0].value;
     var ff_sciname = document.getElementById('ffsciname').value;
+    //var author = document.getElementsByName("author")[0].value;
+    //var family = document.getElementsByName("family")[0].value;
     var ff_state = document.getElementById('ffstate').value;
     var ff_county = document.getElementById('ffcounty').value;
     var ff_municipality = document.getElementById('ffmunicipality').value;
     var ff_locality = document.getElementById('fflocality').value;
-    var field_notes = document.getElementsByName("fieldnotes")[0].value;
+    //var field_notes = document.getElementsByName("fieldnotes")[0].value;
     var sex = document.getElementsByName("sex")[0].value;
 
     //saves the values to chrome sync storage
     chrome.storage.sync.set(
       {
         catalog_number: catalog_number,
-        othercatalog_numbers: othercatalog_numbers,
+        //othercatalog_numbers: othercatalog_numbers,
         recorded_by: recorded_by,
         record_number: record_number,
         event_date: event_date,
@@ -67,18 +74,23 @@ function saveAndAppendContent() {
         associated_taxa: associated_taxa,
         verbatim_attributes: verbatim_attributes,
         ff_sciname: ff_sciname,
+        //author: author,
+        //family: family,
         ff_state: ff_state,
         ff_county: ff_county,
         ff_municipality: ff_municipality,
         ff_locality: ff_locality,
-        field_notes: field_notes,
+        //field_notes: field_notes,
         sex: sex
       }
+
     )
 
+    //console.log("saved");
+
     //Set the xPath Value for the Add Record Button and results variable
-    var xPathStr = "//*[@id='addButtonDiv']/input[2]";
-    var results = "TBD'";
+    var xPathStr = "/html/body/div/table/tbody/tr/td[1]/div/div/form/div[1]/div/button";
+    var returnResults = "TBD";
 
     // Find the Add Record button from xpath
     var elemFound = document.evaluate(xPathStr, document, null, 0, null).iterateNext();
@@ -86,7 +98,9 @@ function saveAndAppendContent() {
     //Click the Add Record Button
     if (elemFound) {
       //--- CLICK ON THE LINK --- TURNED OFF FOR TESTING
+      
       elemFound.click();
+      //console.log("click");
       //alert("clicked the button!");
     }
 
@@ -96,65 +110,11 @@ function saveAndAppendContent() {
       alert(returnResults);
     }
   }
-
-}
-
-function saveOnButtonClick() {
-  //save every field value to variable
-  var catalog_number = document.getElementById('catalognumber').value;
-  var othercatalog_numbers = document.getElementsByName("othercatalognumbers")[0].value;
-  var recorded_by = document.getElementsByName("recordedby")[0].value;
-  var record_number = document.getElementsByName("recordnumber")[0].value;
-  var event_date = document.getElementsByName("eventdate")[0].value;
-  var associated_collectors = document.getElementsByName("associatedcollectors")[0].value;
-  var verbatim_date = document.getElementsByName("verbatimeventdate")[0].value;
-  var identified_by = document.getElementsByName("identifiedby")[0].value;
-  var id_references = document.getElementsByName("identificationreferences")[0].value;
-  var id_remarks = document.getElementsByName("identificationremarks")[0].value;
-  var date_identified = document.getElementsByName("dateidentified")[0].value;
-  var habitat = document.getElementsByName("habitat")[0].value;
-  var substrate = document.getElementsByName("substrate")[0].value;
-  var associated_taxa = document.getElementsByName("associatedtaxa")[0].value;
-  var verbatim_attributes = document.getElementsByName("verbatimattributes")[0].value;
-  var ff_sciname = document.getElementById('ffsciname').value;
-  var ff_state = document.getElementById('ffstate').value;
-  var ff_county = document.getElementById('ffcounty').value;
-  var ff_municipality = document.getElementById('ffmunicipality').value;
-  var ff_locality = document.getElementById('fflocality').value;
-  var field_notes = document.getElementsByName("fieldnotes")[0].value;
-  var sex = document.getElementsByName("sex")[0].value;
-
-  //saves the values to chrome sync storage
-  chrome.storage.sync.set(
-    {
-      catalog_number: catalog_number,
-      othercatalog_numbers: othercatalog_numbers,
-      recorded_by: recorded_by,
-      record_number: record_number,
-      event_date: event_date,
-      associated_collectors: associated_collectors,
-      verbatim_date: verbatim_date,
-      identified_by: identified_by,
-      id_references: id_references,
-      id_remarks: id_remarks,
-      date_identified: date_identified,
-      habitat: habitat,
-      substrate: substrate,
-      associated_taxa: associated_taxa,
-      verbatim_attributes: verbatim_attributes,
-      ff_sciname: ff_sciname,
-      ff_state: ff_state,
-      ff_county: ff_county,
-      ff_municipality: ff_municipality,
-      ff_locality: ff_locality,
-      field_notes: field_notes,
-      sex: sex
-    }
-  )
-  console.log("saved from button click!");
 }
 
 function dittoContent() {
+
+  //alert("at ditto start");
 
   let activeField = document.activeElement.name;
   switch (activeField) {
@@ -164,7 +124,7 @@ function dittoContent() {
       chrome.storage.sync.get(
         (items) => {
           //document.getElementsByName("catalognumber")[0].value = items.catalog_number;
-          document.getElementsByName("othercatalognumbers")[0].focus();
+          document.getElementsByName("recordedby")[0].focus();
         }
       )
       break;
@@ -222,19 +182,20 @@ function dittoContent() {
 
     case "verbatimeventdate":
       //ditto
-      chrome.storage.sync.get(
-        (items) => {
-          document.getElementsByName("verbatimeventdate")[0].value = items.verbatim_date;
-          document.getElementsByName("sciname")[0].focus();
-        }
-      )
+        chrome.storage.sync.get(
+          (items) => {
+            document.getElementsByName("verbatimeventdate")[0].value = items.verbatim_date;
+            document.getElementsByName("sciname")[0].focus();
+          }
+        )
       break;
 
     case "sciname":
       //ditto
       chrome.storage.sync.get(
         (items) => {
-          document.getElementsByName("sciname")[0].value = items.ff_sciname;
+          document.getElementById('ffsciname').value = items.ff_sciname;
+          //document.getElement
           document.getElementsByName("identifiedby")[0].focus();
         }
       )
@@ -377,7 +338,7 @@ function dittoContent() {
       chrome.storage.sync.get(
         (items) => {
           document.getElementsByName("verbatimattributes")[0].value = items.verbatim_attributes;
-          document.getElementsByName("fieldnotes")[0].focus();
+          document.getElementsByName("sex")[0].focus();
         }
       )
       break;

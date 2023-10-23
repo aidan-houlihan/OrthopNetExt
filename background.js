@@ -3,7 +3,8 @@ function saveAndAppend() {
     // Send a message to the content script only if the desired webpage URL matches
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         const currentURL = tabs[0].url;
-        if (currentURL.includes("https://fauna.ansp.org/OrthopNet/collections/editor/occurrenceeditor.php")) {
+        if (currentURL.includes("https://ecdysis.org/collections/editor/occurrenceeditor.php?gotomode=1&collid=117")||
+            currentURL.includes("https://ecdysis.org/collections/editor/occurrenceeditor.php")) {
             chrome.tabs.sendMessage(tabs[0].id, { command: "save_and_append" });
         }
     });
@@ -14,7 +15,8 @@ function ditto() {
     // Send a message to the content script only if the desired webpage URL matches
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         const currentURL = tabs[0].url;
-        if (currentURL.includes("https://fauna.ansp.org/OrthopNet/collections/editor/occurrenceeditor.php")) {
+        if (currentURL.includes("https://ecdysis.org/collections/editor/occurrenceeditor.php?gotomode=1&collid=117")||
+            currentURL.includes("https://ecdysis.org/collections/editor/occurrenceeditor.php")) {
             chrome.tabs.sendMessage(tabs[0].id, { command: "ditto" });
         }
     });
