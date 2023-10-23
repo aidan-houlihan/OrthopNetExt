@@ -35,7 +35,7 @@ be used with similar portals.
 #### Add New Record:
 
 1. While in the New Occurence editor (the editor for previously added records is not affected by the extension), the "Add Record" button can be
-    activated using the shortcut "Control+Shift+9". This will add the current record, open another record, and pre-fill the user-set default values.
+    activated using the shortcut "Command/Control+Shift+9". This will add the current record, open another record, and pre-fill the user-set default values.
 2. The keyboard shortcut can be set in via the Google Chrome extension manager: chrome://extensions/  (click the three line menu in the upper left
     corner and select keyboard shortcuts, just be sure not to set the shortcut to something alrready used by your system or browser).
 
@@ -43,7 +43,7 @@ be used with similar portals.
 
 #### Field Ditto-ing
 
-1. To ditto the field value from the previous record, use the keyboard shortcut "Control-Shift-0". This will insert the previous record's value for 
+1. To ditto the field value from the previous record, use the keyboard shortcut "Command/Control-Shift-0". This will insert the previous record's value for 
     the active field (from a list of supported fields, see below) and advance to the next field.
 2. This can be continued for each field aand if there is no previous record data for a particular field, the command will advance to the next field.
 
