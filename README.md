@@ -1,15 +1,15 @@
 # OrthopNetExt
 
-#### This is a Google Chrome Extension designed to speed up the processing of OrthopNet specimens at the Academy of Natural Sciences of Drexel University.
+#### This is a Google Chrome Extension designed to speed up the processing of OrthopNet entomology specimens at the Academy of Natural Sciences of Drexel University.
 
 # The extension (OrthopNetExt) has three main functions:
 
-1. Introduce keyboard shortcuts where possible to reduce mouse/trackpad interactions (saving, record ditto-ing)
+1. Introduce keyboard shortcuts where possible to reduce mouse/trackpad interactions
 2. To pre-fill default values (user set) that are ubiquitous across all or large groups of specimens. 
-3. To allow for ditto-ing of the previous record's value of a particular field. 
+3. To allow for copying of the previous record's value of a particular field into the current record (ditto-ing). 
 
-Keep in mind, this extension was made excusivley for OrthopNet databasing, and so the field IDs and webpage interactions are bespoke, so this
-will not work with other Symbiota portals without reformatting the field/button names, ditto-ing logic. That being said, the main framework is viable to
+Keep in mind, this extension was made excusivley for OrthopNet databasing in Ecdysis, and the field IDs and webpage interactions are bespoke, so this
+may not work with other Symbiota portals without reformatting the field/button names, ditto-ing logic. That being said, the main framework is viable to
 be used with similar portals.
 
 ## Installation Instructions:
@@ -25,29 +25,29 @@ be used with similar portals.
 
 ## Using the Extension:
 
-#### Adding Default Values (these will be filled in the associated text fields everytime a new record is loaded or the page is refreshed)
+#### Adding Default Values (these will be filled in the associated fields everytime a new record is loaded or the page is refreshed)
 
 1. Click the puzzle piece icon in the drop down menu then click the pin icon next to the OrthopNetExt extension.
-2. Right click on the "O" icon and select the the options page. This will open up a new tab where you can input your default values
+2. Click on the three dots menu icon and select the the options page. This will open up a new tab where you can input your default values
 3. Fill in any defaults that you want (ANSP-ENT- for catalog prefix, United States for country, etc.) and hit save, these can be changed at any time, 
    just refresh the record page to update the values after hitting "save".
    
 #### Add New Record:
 
-1. While in the New Occurence editor (the editor for previously added records is not affected by the extension), the "Add Record" button can be
+1. While in the New Occurence editor (the editor for existing records is not affected by the extension), the "Add Record" button can be
     activated using the shortcut "Command/Control+Shift+9". This will add the current record, open another record, and pre-fill the user-set default values.
-2. The keyboard shortcut can be set in via the Google Chrome extension manager: chrome://extensions/  (click the three line menu in the upper left
+2. The keyboard shortcut can be changed via the Google Chrome extension manager: chrome://extensions/  (click the three line menu in the upper left
     corner and select keyboard shortcuts, just be sure not to set the shortcut to something alrready used by your system or browser).
 
-##### Note: This extension also includes some data-cleaning capablities and will alert you to data fields that need to added/amended before saving!
+##### Note: This extension also includes some data protection capablities and will alert you to data fields that need to added/amended before saving! These can be adjusted as needed in to suit your collections needs.
 
 #### Field Ditto-ing
 
 1. To ditto the field value from the previous record, use the keyboard shortcut "Command/Control-Shift-0". This will insert the previous record's value for 
     the active field (from a list of supported fields, see below) and advance to the next field.
-2. This can be continued for each field aand if there is no previous record data for a particular field, the command will advance to the next field.
+2. This can be continued for each field aand if there is no previous record data for a particular field, the command will advance to the next field. Holding down the shortcut will enter all values in turn through the record, useful for when the majority of fields are the same, but one or two may need to changed.
 
-### Note: to make previous records available to this command, the Add New Record command must be used, simply pressing the webpage button will not work!
+### Note: to make previous records available to this command, the Add New Record shortcut must be used, simply pressing the webpage button to add the record will not work!
       
 ### Fields Available to Ditto (contact Aidan Houlihan ah3789@drexel.edu if other fields are required)
 
