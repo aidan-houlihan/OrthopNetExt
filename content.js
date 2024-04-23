@@ -402,6 +402,7 @@ if (newOccurence == "New Occurrence Record") {
       document.getElementsByName("lifestage")[0].value = option.lifeStageG;
       document.getElementsByName("individualcount")[0].value = option.individualCountG;
       document.getElementsByName("disposition")[0].value = option.dispositionG;
+      document.getElementsByName("preparations")[0].value = option.preparationsG;
     }
   )
 

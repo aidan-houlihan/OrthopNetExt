@@ -6,11 +6,12 @@ const saveOptions = () => {
     const country = document.getElementById('country').value;
     const state = document.getElementById('state').value;
     const disposition = document.getElementById('disposition').value;
+    const preparations = documen.getElementById('preparations').value;
 
     chrome.storage.sync.set(
       { catalogNumberG: catalogNumber, lifeStageG: lifeStage,
       individualCountG: individualCount , countryG: country, 
-      stateG: state, dispositionG: disposition},
+      stateG: state, dispositionG: disposition, preparationsG: preparations},
       () => {
         // Update status to let user know options were saved.
         const status = document.getElementById('status');
@@ -33,6 +34,7 @@ const saveOptions = () => {
         document.getElementById('country').value = items.countryG;
         document.getElementById('state').value = items.stateG;
         document.getElementById('disposition').value = items.dispositionG
+        document.getElementById('preparations').value = items.preparationsG
       }
     );
   };
