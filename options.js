@@ -6,7 +6,7 @@ const saveOptions = () => {
     const country = document.getElementById('country').value;
     const state = document.getElementById('state').value;
     const disposition = document.getElementById('disposition').value;
-    const preparations = documen.getElementById('preparations').value;
+    const preparations = document.getElementById('preparations').value;
 
     chrome.storage.sync.set(
       { catalogNumberG: catalogNumber, lifeStageG: lifeStage,
