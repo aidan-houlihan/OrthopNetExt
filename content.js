@@ -407,7 +407,7 @@ if (newOccurence == "New Occurrence Record") {
   )
 
   //generate UUID and put it in the occurenceID field
-  document.getElementsByName("occurrenceid")[0].value = self.crypto.randomUUID();
+  //document.getElementsByName("occurrenceid")[0].value = self.crypto.randomUUID();
 
   //Open ID remarks field
 
