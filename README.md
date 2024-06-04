@@ -73,7 +73,7 @@ Description\
 Field Notes\
 Sex
 
-### Note: follwing the locality field, if there is no previous data in the Misc. section, it will advance to "Sex"
+### Note: following the locality field, if there is no previous data in the Misc. section, it will advance to "Sex"
 
 ## That should be about it for getting up and running! Feel free to edit the shortcuts/code for your copy of the extension in any way!
 
