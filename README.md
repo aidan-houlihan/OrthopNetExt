@@ -45,7 +45,7 @@ be used with similar portals.
 
 1. To ditto the field value from the previous record, use the keyboard shortcut "Command/Control-Shift-0". This will insert the previous record's value for 
     the active field (from a list of supported fields, see below) and advance to the next field.
-2. This can be continued for each field aand if there is no previous record data for a particular field, the command will advance to the next field. Holding down the shortcut will enter all values in turn through the record, useful for when the majority of fields are the same, but one or two may need to changed.
+2. This can be continued for each field and if there is no previous record data for a particular field, the command will advance to the next field. Holding down the shortcut will enter all values in turn through the record, useful for when the majority of fields are the same, but one or two may need to changed.
 
 ### Note: to make previous records available to this command, the Add New Record shortcut must be used, simply pressing the webpage button to add the record will not work!
       
