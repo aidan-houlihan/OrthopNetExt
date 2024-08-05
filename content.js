@@ -390,8 +390,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 //SET DEFAULT VALUES ON PAGE REFRESH (new record) --- WORKS KEEP IN content.js
 
 var newOccurence = document.getElementById("ui-id-1").innerText;
-console.log(newOccurence);
 
+//Also add check to see if on a georeferencing page, and if so then check the check box in options to do error polygon
 if (newOccurence == "New Occurrence Record") {
   console.log("occurence match");
   chrome.storage.sync.get(
@@ -433,6 +433,11 @@ if (newOccurence == "New Occurrence Record") {
   //Set Focus to Catalog Number Field
   document.getElementById('catalognumber').focus();
 }
+
+else if(newOccurence == "Georeferencing options"){
+  document.getElementById("enableErrorPoly").checked = true;
+}
+
 else {
   console.log("on the wrong page!");
 }
