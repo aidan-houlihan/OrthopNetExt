@@ -367,6 +367,12 @@ function dittoContent() {
 
 }
 
+function updateIframeSrc(newGeorefValues) {
+  var iframe = document.getElementById('Iframe1');
+  var src = iframe.src;
+  var newSrc = src.replace(/georef=[^&]*/, 'georef=' + newGeorefValues);
+  iframe.src = newSrc;
+}
 // Listen for messages from the background script
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message.command === "save_and_append") {
@@ -389,7 +395,44 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
 //SET DEFAULT VALUES ON PAGE REFRESH (new record) --- WORKS KEEP IN content.js
 
-var newOccurence = document.getElementById("ui-id-1").innerText;
+try{
+
+  var occurenceElement = document.getElementById("ui-id-1"); //Should be "New Occurrence Record"
+
+
+  if (!occurenceElement){
+    throw new Error("Element with ID 'ui-id-1' not found.");
+  }
+
+  var newOccurence = occurenceElement.innerText;
+
+} catch (error){
+  console.error(error.message)
+}
+
+//change the src iframe link to alter the options so it generates the polygon
+try{
+  var geoElement = document.title; //should be "GEOLocate Tool"
+
+  if (!geoElement){
+    throw new Error("Element with ID 'title' not found.");
+  }
+
+  console.log(geoElement);
+
+  if(geoElement == "GEOLocate Tool"){
+
+    window.onload = function() {
+      updateIframeSrc('run|true|true|true|true|false|false|false|0');
+      };
+
+  }
+
+} 
+catch (error){
+  console.error(error.message)
+}
+
 
 //Also add check to see if on a georeferencing page, and if so then check the check box in options to do error polygon
 if (newOccurence == "New Occurrence Record") {
@@ -434,14 +477,8 @@ if (newOccurence == "New Occurrence Record") {
   document.getElementById('catalognumber').focus();
 }
 
-else if(newOccurence == "Georeferencing options"){
-  document.getElementById("enableErrorPoly").checked = true;
-}
-
 else {
   console.log("on the wrong page!");
 }
 
-
 //document.addEventListener('DOMContentLoaded', setDefaults);
-
