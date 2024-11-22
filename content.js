@@ -3,6 +3,8 @@ function saveAndAppendContent() {
 
   //alert("save and append start");
 
+  extractTableData();
+
   //check if the record number is the right length (15 characters)
   if(document.getElementById('catalognumber').value.length != 15){
     alert("It looks like the record number might be mistyped, try again before saving!")
@@ -20,8 +22,8 @@ function saveAndAppendContent() {
 
   //check if sex and entered correctly
   else if (document.getElementsByName('sex')[0].value != "Male" && document.getElementsByName('sex')[0].value != "Female" && 
-             document.getElementsByName('lifestage')[0].value == "Adult"){
-    alert("The sex might not be entered correctly. Please use Male, Female, or leave blank if unknown/nymph!")
+             document.getElementsByName('lifestage')[0].value == "Adult" && document.getElementsByName('sex')[0].value != "Unknown"){
+    alert("The sex might not be entered correctly. Please use Male, Female, or Unknown, if nymph leave blank!")
   }
 
   //if there is a species name entered, save normally
@@ -31,7 +33,8 @@ function saveAndAppendContent() {
 
     //save every field value to variable
     var catalog_number = document.getElementById('catalognumber').value;
-    //var othercatalog_numbers = document.getElementsByName("othercatalognumbers")[0].value;
+    var other_cat_number_tag = document.querySelector("#identifierBody > div > div:nth-child(1) > input.idNameInput").value;
+    var other_cat_number_value = document.querySelector("#identifierBody > div > div:nth-child(2) > input").value;
     var recorded_by = document.getElementsByName("recordedby")[0].value;
     var record_number = document.getElementsByName("recordnumber")[0].value;
     var event_date = document.getElementsByName("eventdate")[0].value;
@@ -59,7 +62,8 @@ function saveAndAppendContent() {
     chrome.storage.sync.set(
       {
         catalog_number: catalog_number,
-        //othercatalog_numbers: othercatalog_numbers,
+        other_cat_number_tag: other_cat_number_tag,
+        other_cat_number_value: other_cat_number_value,
         recorded_by: recorded_by,
         record_number: record_number,
         event_date: event_date,
@@ -117,6 +121,7 @@ function dittoContent() {
   //alert("at ditto start");
 
   let activeField = document.activeElement.name;
+  //console.log(activeField)
   switch (activeField) {
 
     case "catalognumber":
@@ -124,16 +129,26 @@ function dittoContent() {
       chrome.storage.sync.get(
         (items) => {
           //document.getElementsByName("catalognumber")[0].value = items.catalog_number;
-          document.getElementsByName("recordedby")[0].focus();
+          document.querySelector("#identifierBody > div > div:nth-child(1) > input.idNameInput").focus();
         }
       )
       break;
 
-    case "othercatalognumbers":
+    case "idname[]":
       //ditto
       chrome.storage.sync.get(
         (items) => {
-          document.getElementsByName("othercatalognumbers")[0].value = items.othercatalog_numbers;
+          document.querySelector("#identifierBody > div > div:nth-child(1) > input.idNameInput").value = items.other_cat_number_tag;
+          document.querySelector("#identifierBody > div > div:nth-child(2) > input").focus();
+        }
+      )
+      break;
+
+    case "idvalue[]":
+      //ditto
+      chrome.storage.sync.get(
+        (items) => {
+          document.querySelector("#identifierBody > div > div:nth-child(2) > input").value= items.other_cat_number_value;
           document.getElementsByName("recordedby")[0].focus();
         }
       )
