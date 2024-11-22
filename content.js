@@ -3,8 +3,6 @@ function saveAndAppendContent() {
 
   //alert("save and append start");
 
-  extractTableData();
-
   //check if the record number is the right length (15 characters)
   if(document.getElementById('catalognumber').value.length != 15){
     alert("It looks like the record number might be mistyped, try again before saving!")
