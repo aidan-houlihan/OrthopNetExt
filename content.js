@@ -36,6 +36,7 @@ function saveAndAppendContent() {
     var recorded_by = document.getElementsByName("recordedby")[0].value;
     var record_number = document.getElementsByName("recordnumber")[0].value;
     var event_date = document.getElementsByName("eventdate")[0].value;
+    var end_date = document.getElementsByName("eventdate2")[0].value;
     var associated_collectors = document.getElementsByName("associatedcollectors")[0].value;
     var verbatim_date = document.getElementsByName("verbatimeventdate")[0].value;
     var identified_by = document.getElementsByName("identifiedby")[0].value;
@@ -65,6 +66,7 @@ function saveAndAppendContent() {
         recorded_by: recorded_by,
         record_number: record_number,
         event_date: event_date,
+        end_date: end_date,
         associated_collectors: associated_collectors,
         verbatim_date: verbatim_date,
         identified_by: identified_by,
@@ -178,11 +180,21 @@ function dittoContent() {
       chrome.storage.sync.get(
         (items) => {
           document.getElementsByName("eventdate")[0].value = items.event_date;
+          document.getElementsByName("eventdate2")[0].focus();
+        }
+      )
+      break;
+      
+    case "eventdate2":
+      //ditto
+      chrome.storage.sync.get(
+        (items) => {
+          document.getElementsByName("eventdate2")[0].value = items.end_date;
           document.getElementsByName("associatedcollectors")[0].focus();
         }
       )
       break;
-
+      
     case "associatedcollectors":
       //ditto
       chrome.storage.sync.get(
